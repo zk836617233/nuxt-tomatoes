@@ -1,4 +1,4 @@
-# Nuxt 3 Minimal Starter
+# 使用Nuxt3仿豆瓣电影项目H5 (烂番茄风格)
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
