@@ -10,7 +10,7 @@
 
 <style scoped>
 .header-search {
-  @apply relative w-[380px];
+  @apply relative w-[360px];
 }
 .header-search > .search-icon {
   @apply absolute top-1/2 -translate-y-1/2 left-2;

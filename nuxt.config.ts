@@ -8,5 +8,12 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["@nuxt/image", "nuxt-icon"],
+  app: {
+    head: {
+      bodyAttrs: {
+        class: "bg-[#F3F3F3]",
+      },
+    },
+  },
+  modules: ["@nuxt/image", "nuxt-icon", "nuxt-swiper"],
 });

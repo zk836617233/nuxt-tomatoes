@@ -1,14 +1,11 @@
 <template>
   <div>
     <Header />
-    <div class="bg-[#F3F3F3]">
-      <slot />
-    </div>
-    <Footer />
+    <slot />
+    <!-- <Footer /> -->
   </div>
 </template>
 
 <script setup></script>
 
-<style scoped>
-</style>
+<style scoped></style>

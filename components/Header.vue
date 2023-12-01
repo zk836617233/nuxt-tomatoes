@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="container mx-auto h-full p-3 flex justify-between items-center">
+    <div class="container mx-auto h-full py-3 flex justify-between items-center">
       <div class="flex items-center gap-x-4">
         <NuxtImg src="/img/logo.svg" width="161" height="50" alt="logo" />
         <SearchInput placeholder="搜索电影，电视剧，综艺，影人" class="hidden lg:block" />
@@ -30,6 +30,6 @@
 }
 
 .header-ul > li {
-  @apply py-3 px-4 text-white font-bold text-base rounded-xl cursor-pointer hover:bg-white hover:text-black;
+  @apply py-2 px-3 text-white font-bold text-base rounded-xl cursor-pointer hover:bg-white hover:text-black;
 }
 </style>
