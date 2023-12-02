@@ -15,5 +15,18 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ["@nuxt/image", "nuxt-icon", "nuxt-swiper"],
+  modules: ["@nuxt/image", "nuxt-icon", "nuxt-swiper", "vuetify-nuxt-module"],
+  vuetify: {
+    vuetifyOptions: {
+      components: "VDialog", // or ['VDialog']
+    },
+  },
+  nitro: {
+    devProxy: {
+      "/api": {
+        target: "https://movie.douban.com/j/",
+        changeOrigin: true,
+      },
+    },
+  },
 });

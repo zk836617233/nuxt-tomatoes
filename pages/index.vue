@@ -11,7 +11,10 @@
         spaceBetween="10"
       >
         <SwiperSlide v-for="item in hotMovie.subjects" :key="item.id">
-          <CardCover :item="item" />
+          <CardCover
+            :item="item"
+            @click="getMovieDetails(item.id, item.cover)"
+          />
         </SwiperSlide>
       </Swiper>
     </div>
@@ -26,27 +29,48 @@
         spaceBetween="10"
       >
         <SwiperSlide v-for="item in hotTv.subjects" :key="item.id">
-          <CardCover :item="item" />
+          <CardCover
+            :item="item"
+            @click="getMovieDetails(item.id, item.cover)"
+          />
         </SwiperSlide>
       </Swiper>
     </div>
+    <VDialog width="auto" v-model="dialog">
+      <CardMovie :item="movieCard" @close="dialog = false" />
+    </VDialog>
   </section>
 </template>
 
 <script setup>
+const dialog = ref(false);
+const movieCard = ref(null);
 const { data: hotMovie } = await useFetch(
-  "https://movie.douban.com/j/search_subjects?type=movie&tag=%E7%83%AD%E9%97%A8&page_limit=50&page_start=0",
+  "http://localhost:3000/api/search_subjects?type=movie&tag=%E7%83%AD%E9%97%A8&page_limit=50&page_start=0",
   {
     pick: ["subjects"],
   }
 );
 
 const { data: hotTv } = await useFetch(
-  "https://movie.douban.com/j/search_subjects?type=tv&tag=%E7%83%AD%E9%97%A8&page_limit=50&page_start=0",
+  "http://localhost:3000/api/search_subjects?type=tv&tag=%E7%83%AD%E9%97%A8&page_limit=50&page_start=0",
   {
     pick: ["subjects"],
   }
 );
+
+const getMovieDetails = async (id, cover) => {
+  const { data } = await useFetch(
+    `http://localhost:3000/api/subject_abstract?subject_id=${id}`,
+    {
+      pick: ["subject"],
+    }
+  );
+  console.log(data);
+  movieCard.value = { ...data.value.subject, cover };
+  console.log(movieCard.value);
+  dialog.value = true;
+};
 </script>
 
 <style scoped>
