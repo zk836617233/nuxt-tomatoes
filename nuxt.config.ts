@@ -18,7 +18,14 @@ export default defineNuxtConfig({
   modules: ["@nuxt/image", "nuxt-icon", "nuxt-swiper", "vuetify-nuxt-module"],
   vuetify: {
     vuetifyOptions: {
-      components: "VDialog", // or ['VDialog']
+      components: [
+        "VDialog",
+        "VMenu",
+        "VList",
+        "VListItem",
+        "VRadioGroup",
+        "VRadio",
+      ],
     },
   },
   nitro: {
