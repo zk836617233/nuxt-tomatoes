@@ -29,10 +29,8 @@
         spaceBetween="10"
       >
         <SwiperSlide v-for="item in hotTv.subjects" :key="item.id">
-          <CardCover
-            :item="item"
-            @click="getMovieDetails(item.id, item.cover)"
-          />
+          <CardCover  :item="item"
+            @click="getMovieDetails(item.id, item.cover)" />
         </SwiperSlide>
       </Swiper>
     </div>
@@ -66,9 +64,7 @@ const getMovieDetails = async (id, cover) => {
       pick: ["subject"],
     }
   );
-  console.log(data);
   movieCard.value = { ...data.value.subject, cover };
-  console.log(movieCard.value);
   dialog.value = true;
 };
 </script>

@@ -25,6 +25,8 @@ export default defineNuxtConfig({
         "VListItem",
         "VRadioGroup",
         "VRadio",
+        "VBanner",
+        "VBannerText",
       ],
     },
   },
@@ -32,6 +34,10 @@ export default defineNuxtConfig({
     devProxy: {
       "/api": {
         target: "https://movie.douban.com/j/",
+        changeOrigin: true,
+      },
+      "/mapi": {
+        target: "https://m.douban.com/rexxar/api/",
         changeOrigin: true,
       },
     },
